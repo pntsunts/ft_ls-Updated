@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:24:27 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/10 16:05:22 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/10 16:33:11 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int		main(void)
 	struct dirent	*folders;
 
 	directory = opendir(".");
-	folders = readdir(directory);
-	while (folders != NULL)
+	while ((folders = readdir(directory)) != NULL)
 	{
 		if (folders->d_name[0] != '.')
 		{
