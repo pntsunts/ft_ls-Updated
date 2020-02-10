@@ -6,22 +6,20 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:24:27 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/10 15:44:55 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/10 16:05:22 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int main()
+int		main(void)
 {
-	DIR *directory;
+	DIR				*directory;
 
-	struct dirent *folders;
+	struct dirent	*folders;
 
 	directory = opendir(".");
-
 	folders = readdir(directory);
-
 	while (folders != NULL)
 	{
 		if (folders->d_name[0] != '.')
