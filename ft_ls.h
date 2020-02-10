@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/10 14:33:51 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/10 15:45:12 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <errno.h>0
+#include <errno.h>
 
 #endif
