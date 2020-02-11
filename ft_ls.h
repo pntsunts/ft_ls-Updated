@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/10 15:45:12 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/11 15:21:46 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,9 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <stdio.h>
+
+static void list(const char *dir_name);
+static void recursion(const char *dir_name);
 
 #endif
