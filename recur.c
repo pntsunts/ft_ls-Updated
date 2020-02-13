@@ -6,13 +6,13 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 15:03:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/13 09:21:48 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/13 14:25:45 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void list(const char *dir_name)
+void recur(const char *dir_name)
 {
 	DIR *directory;
 	char *data;
@@ -40,4 +40,5 @@ static void list(const char *dir_name)
 		}
 	}
 	closedir(directory);
+	free(data);
 }

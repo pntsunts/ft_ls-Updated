@@ -6,13 +6,13 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 15:23:18 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/13 10:22:06 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/13 14:31:23 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static	void recursion(const char *dir_name)
+void sion(const char *dir_name)
 {
 	DIR *directory;
 	char *data;
@@ -34,7 +34,9 @@ static	void recursion(const char *dir_name)
 			ft_strcpy(data, dir_name);
 			ft_strcat(data, "/");
 			ft_strcat(data, folder->d_name);
-			list_dir(data);
+			recur(data);
 		}
 	}
+	closedir(directory);
+	free(data);
 }
