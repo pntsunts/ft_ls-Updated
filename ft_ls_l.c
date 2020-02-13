@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 10:45:31 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/11 15:01:11 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/13 15:47:28 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,12 @@ int main(int ac, char **av)
 			ft_putstr("r");
 		if (filestat.st_mode & S_IXOTH)
 			ft_putstr("x");
-		else
-			ft_putstr("-");
-		//return (0);
+		ft_putstr("-");
+		ft_putstr("     ");
+		ft_putnbr(filestat.st_nlink);
+		ft_putstr("    ");
+		ft_putnbr(filestat.st_size);
+		ft_putstr("    ");
+		return (0);
 	}
 }
