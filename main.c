@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 14:24:27 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/17 14:10:10 by pntsunts         ###   ########.fr       */
+/*   Created: 2020/02/13 10:26:22 by pntsunts          #+#    #+#             */
+/*   Updated: 2020/02/17 14:18:58 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_ls(const char *dir_name)
+int		main(int ac, char **av)
 {
-	DIR				*directory;
-
-	struct dirent	*folders;
-
-	directory = opendir(dir_name);
-	while ((folders = readdir(directory)) != NULL)
+	int i = 0;
+	if (ac < 2)
 	{
-		if (folders->d_name[0] != '.')
+		if (av[i][0] != '-')
 		{
-			ft_putstr(folders->d_name);
-			ft_putchar('\n');
+			ft_ls("./");
 		}
 	}
-	closedir(directory);
+	return (0);
+}
+
+int main(void)
+{
+	sion("/");
+	recur("/");
 }
