@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/13 09:21:42 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/18 13:16:19 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 #include <errno.h>
 #include <stdio.h>
 
-static void list(const char *dir_name);
-static void recursion(const char *dir_name);
+void sion(const char *dir_name);
+void recur(const char *dir_name);
+void ft_ls(const char *dir_name);
+void ft_perm(const char *dir_name);
 
 #endif
