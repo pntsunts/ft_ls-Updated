@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/18 13:16:19 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:44:53 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include <stdio.h>
+#include <pwd.h>
+#include <grp.h>
 
 void sion(const char *dir_name);
 void recur(const char *dir_name);

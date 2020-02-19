@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 11:26:56 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/19 16:14:57 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:45:49 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	ft_perm(const char *dir_name)
 {
 	struct stat filestat;
+	struct passwd *pass;
+	struct group *grp;
 
 	if (stat(dir_name, &filestat) == -1)
 	{
@@ -34,4 +36,10 @@ void	ft_perm(const char *dir_name)
 	ft_putchar((filestat.st_mode & S_IXOTH) ? 'x' : '-');
 	ft_putstr("   ");
 	ft_putnbr(filestat.st_nlink);
+	ft_putstr("   ");
+	if ((pass = getpwuid(filestat.st_uid)))
+		ft_putstr(pass->pw_name);
+	ft_putstr("   ");
+	if ((grp = getgrgid(filestat.st_gid)))
+		ft_putstr(grp->gr_name);
 }
