@@ -6,13 +6,13 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:48:01 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/20 12:18:17 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:18:30 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	ft_check(int ac, char **av)
+int	ft_checkf(int ac, char **av)
 {
 	if (ac < 2)
 		exit(1);
