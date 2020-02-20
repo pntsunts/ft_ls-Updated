@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 11:26:56 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/19 16:45:49 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/20 12:10:26 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ void	ft_perm(const char *dir_name)
 	ft_putstr("   ");
 	if ((grp = getgrgid(filestat.st_gid)))
 		ft_putstr(grp->gr_name);
+	ft_putstr("   ");
+	ft_putnbr(filestat.st_size);
+	ft_putstr("   ");
+	ft_putstr(ctime(&filestat.st_mtime));
+	ft_putstr(dir_name);
 }
