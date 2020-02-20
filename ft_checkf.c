@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:48:01 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/20 12:10:23 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/20 12:18:17 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ int	ft_check(int ac, char **av)
 {
 	if (ac < 2)
 		exit(1);
-	else 
+	else
 	{
 		while (av[1] != '\0')
 		{
 			if (av[1][0] != '-')
-			break;
-
+				break ;
 			if (av[1][0] == '-')
 				return (1);
 			else
