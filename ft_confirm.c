@@ -6,15 +6,30 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 14:29:44 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/20 16:16:35 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/21 12:57:07 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_confirm(int ac, char **av)
+
+int		ft_isoption(char c)
 {
-	struct P_flags F_lags;
+	if (c == 'l')
+		return (1);
+	if (c == 'a')
+		return (1);
+	if (c == 'r')
+		return (1);
+	if (c == 't')
+		return (1);
+	if (c == 'R')
+		return (1);
+	return (0);
+}
+
+void	ft_confirm(int ac, char **av, P_flags *F_lags)
+{
 	int i;
 	int j;
 
@@ -26,28 +41,31 @@ void	ft_confirm(int ac, char **av)
 
 	i = 1;
 
-	if (ft_checkf(ac, av) == 1)
+	while (i < ac)
 	{
-		j = 1;
-		while (av[i] != '\0')
+		if (ft_checkf(av[i]))
 		{
-			if (av[i][j] != 'l' && av[i][j] != 'a' && av[i][j] != 'r' && av[i][j] != 't' 				&& av[i][j] != 'R')
+			j = 1;
+			while (av[i][j] != '\0')
 			{
-				ft_putstr("illegal option ----");
-				return ;
+				if (!ft_isoption(av[i][j]))
+				{
+					ft_putstr("illegal option ----\n");
+					break;
+				}
+				if (av[i][j] == 'l')
+					F_lags->l_flag = 1;
+				else if (av[i][j] == 'a')
+					F_lags->a_flag = 1;
+				else if (av[i][j] == 'r')
+					F_lags->r_flag = 1;
+				else if (av[i][j] == 't')
+					F_lags->t_flag = 1;
+				else if (av[i][j] == 'R')
+					F_lags->Re_flag = 1;
+				j++;
 			}
-			if (av[i][j] == 'l')
-				F_lags->l_flag = 1;
-			else if (av[i][j] == 'a')
-				F_lags->a_flag = 1;
-			else if (av[i][j] == 'r')
-				F_lags->r_flag = 1;
-			else if (av[i][j] == 't')
-				F_lags->t_flag = 1;
-			else if (av[i][j] == 'R')
-				F_lags->Re_flag = 1;
-			j++;
 		}
 		i++;
 	}
-}
+} 

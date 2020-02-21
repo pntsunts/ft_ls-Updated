@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/20 15:57:37 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/21 12:56:03 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void sion(const char *dir_name);
 void recur(const char *dir_name);
 void ft_ls(const char *dir_name);
 void ft_perm(const char *dir_name);
+int	ft_checkf(char *av);
+void ft_confirm(int ac, char **av, P_flags *F_lags);
+void test(int ac, char **av, P_flags *F_lags);
 
 #endif
