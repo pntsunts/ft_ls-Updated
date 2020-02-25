@@ -6,19 +6,19 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 16:07:47 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/11 10:43:23 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/25 11:58:53 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int				main(void)
+void				ft_ls_a(const char *dir_name)
 {
 	DIR		*directory;
 
 	struct dirent *folders;
 	
-	directory = opendir(".");
+	directory = opendir(dir_name);
 	while ((folders = readdir(directory)) != NULL)
 	{
 		if (folders->d_name[0] != '\0')
@@ -28,5 +28,5 @@ int				main(void)
 		}
 	}
 	closedir(directory);
-	return (0);
+	return ;
 }
