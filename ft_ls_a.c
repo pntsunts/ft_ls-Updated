@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 16:07:47 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/25 11:58:53 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:41:09 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void				ft_ls_a(const char *dir_name)
 {
-	DIR		*directory;
+	DIR				*directory;
+	struct dirent	*folders;
 
-	struct dirent *folders;
-	
 	directory = opendir(dir_name);
 	while ((folders = readdir(directory)) != NULL)
 	{
