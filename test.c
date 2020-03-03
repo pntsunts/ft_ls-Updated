@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:51:19 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/03 16:54:59 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/03 17:14:21 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 				j = 0;
 				while (tmp[j].name != NULL) {
 					char *s1 = ft_strjoin(ft_strjoin(av[i], "/"), tmp[j].name);
-					ft_putstr(s1);
-					ft_putendl(s1);
-					printl(ft_strjoin(av[i], tmp[j].name));
+					//ft_putstr(s1);
+					//ft_putendl(s1);
+					//printl(ft_strjoin(av[i], tmp[j].name));
 					printl(s1);
 					j++;
 				}
@@ -43,7 +43,7 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 			}
 			i++;
 		}
-		i = 0;
+		/*i = 0;
 		while (tmp[i].name != NULL) {
 			printl(tmp[i].name);
 			i++;
@@ -54,7 +54,7 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 			if (!ft_isdir(av[i]) && !ft_checkf(av[i]))
 				printl(av[i]);
 			i++;
-		}
+		}*/
 	}
    	if (F_lags->Re_flag == 1)
 	{
