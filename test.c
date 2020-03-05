@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:51:19 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/03 17:14:21 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:20:42 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 {
-	int i = 1;
-	int j;
+	//int i = 1;
+	//int j;
 
 	//while (ft_checkf(av[i]))
 	//	i++;
@@ -23,38 +23,7 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 	//printf("l:%i\na:%i\nr:%i\nt:%i\nR:%i\n",F_lags->l_flag,F_lags->a_flag,F_lags->r_flag,F_lags->t_flag,F_lags->Re_flag);
 	if (F_lags->l_flag == 1)
 	{
-		while (av[i])
-		{
-			if (ft_isdir(av[i]) && !ft_checkf(av[i])) {
-				loopdir(av[i], tmp); //readdir and save files in dir not print
-				j = 0;
-				while (tmp[j].name != NULL) {
-					char *s1 = ft_strjoin(ft_strjoin(av[i], "/"), tmp[j].name);
-					//ft_putstr(s1);
-					//ft_putendl(s1);
-					//printl(ft_strjoin(av[i], tmp[j].name));
-					printl(s1);
-					j++;
-				}
-			}
-			else
-			{
-				printl(av[i]);
-			}
-			i++;
-		}
-		/*i = 0;
-		while (tmp[i].name != NULL) {
-			printl(tmp[i].name);
-			i++;
-		}
-		i =11;
-		while (av[i])
-		{
-			if (!ft_isdir(av[i]) && !ft_checkf(av[i]))
-				printl(av[i]);
-			i++;
-		}*/
+		printing(av, tmp);
 	}
    	if (F_lags->Re_flag == 1)
 	{
