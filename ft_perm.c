@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 11:26:56 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/02/21 10:30:15 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/02 14:27:48 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_perm(const char *dir_name)
 {
 	struct stat filestat;
-	struct passwd *pass;
+	//struct passwd *pass;
 	struct group *grp;
 
 	if (stat(dir_name, &filestat) == -1)
@@ -37,8 +37,8 @@ void	ft_perm(const char *dir_name)
 	ft_putstr("   ");
 	ft_putnbr(filestat.st_nlink);
 	ft_putstr("   ");
-	if ((pass = getpwuid(filestat.st_uid)))
-		ft_putstr(pass->pw_name);
+	//if ((pass = getpwuid(filestat.st_uid)))
+	//	ft_putstr(pass->pw_name);
 	ft_putstr("   ");
 	if ((grp = getgrgid(filestat.st_gid)))
 		ft_putstr(grp->gr_name);
@@ -48,3 +48,22 @@ void	ft_perm(const char *dir_name)
 	ft_putstr(ctime(&filestat.st_mtime));
 	ft_putendl(dir_name);
 }
+
+/*void	*Name(struct filestat)
+{
+	struct passwd *pass;
+	if ((pass = getpwuid(filestat.st_uid)))
+		ft_putstr(pass->pw_name);
+	else
+		ft_putstr("root");
+}
+
+char	*group(struct filestat)
+{
+	struct group *grp;
+	if ((grp = getgrgid(filesta.st_gid)))
+		ft_putstr(grp->gr_name);
+	else
+		ft_putstr("root");
+	return (0);
+}*/

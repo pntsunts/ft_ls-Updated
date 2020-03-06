@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:51:19 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/05 15:20:42 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/06 14:49:38 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 	{
 		//ft_putstr("YOU IN");
 		printr(".", tmp);
+	}
+	if (F_lags->t_flag == 1)
+	{
+		printtime(tmp);
 	}
 }

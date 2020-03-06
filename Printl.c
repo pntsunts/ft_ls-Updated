@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 13:04:32 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/02 15:52:33 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/05 14:52:37 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,9 @@ void	printl(char *dir_name)
 	ft_putstr("  ");
 	ft_putendl(dir_name);
 }
+/*
+int main(int argc, char **argv) {
+	if (argc > 1)
+		printl(argv[1]);
+	return 0;
+}*/

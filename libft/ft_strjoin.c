@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 10:59:33 by pntsunts          #+#    #+#             */
-/*   Updated: 2019/07/01 16:17:23 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:04:48 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ char				*ft_strjoin(char const *s1, char const *s2)
 	}
 	st[y + x] = '\0';
 	return (st);
+	free(st);
 }

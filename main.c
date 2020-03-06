@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 10:26:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/03 16:12:12 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/06 14:50:01 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 		//ft_confirm(ac, av, &F_lags);
 		test(ac, av, F_lags, tmp);
 	}
-//	sleep(10);
+	sleep(10);
 	return (0);
 }
 
