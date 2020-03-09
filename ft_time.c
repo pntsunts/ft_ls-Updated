@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 09:43:29 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/06 15:09:41 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:36:17 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,16 @@ void	printtime(t_files store[])
 {
 //	int i = 0;
 	ft_time(".", store);
-	dtime(store,length(store)); 
+	distime(store,length(store)); 
 
 }
 
-void	dtime(t_files data[], int i)
+void	distime(t_files data[], int i)
 {
 	i--;
-	sorte(data);
-	ft_putendl(data[1].name);
+
+	ft_putendl("OPPPPPPS");
+	sortime(data, i);
 	while (i >= 0)
 	{
 		if (*data[i].name != '.')
@@ -64,58 +65,67 @@ int		length(t_files len[])
 	while (len[i].name != NULL)
 		i++;
 	return (i);
-
 }
 
-/*void	ft_swap(int *a, int *b)
+void		swap(t_files	*data, int i)
 {
-	int tmp;
+	t_files		tmp;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}*/
-
-t_files	*ft_swap(t_files *s1, t_files *s2)
-{
-	if (s1->prev != NULL)
-		s1->prev->next = s2;
-	s2->prev = s1->prev;
-	s1->prev = s2;
-	s1->next = s2->next;
-	if (s2->next != NULL)
-		s2->next->prev = s1;
-	s2->next = s1;
-	return (s2);
-}
-
-t_files		*sorte(t_files data[])
-{
-	t_files *str;
-
-	str = data;
-	while (str->next != NULL)
+	if (ft_strcmp(data[i].name , data[i + 1].name) > 0)
 	{
-		if (str->ctime < str->next->ctime)
-		{
-			str = ft_swap(str, str->next);
-			str = data;
-		}
-		else if (str->ctime == str->next->ctime)
-		{
-			if (str->ctime < str->next->ctime)
-			{
-				str = ft_swap(str, str->next);
-				str = data;
-			}
-			else
-				str = str->next;
-		}
-		else
-			str = str->next;
+		tmp = data[i];
+		data[i] = data[i + 1];
+		data[i + 1] = tmp;
 	}
-	return (data);
 }
 
+void	strset(t_files *data, int i)
+{
+	struct timespec s1;
+	struct timespec s2;
 
+	s1 = data[i].stptr.st_mtimespec;
+	s2 = data[i + 1].stptr.st_mtimespec;
+}
 
+int		timesort(t_files *data, int i)
+{
+	struct timespec s1;
+	struct timespec s2;
+	t_files tmp;
+
+	if (s1.tv_sec < s2.tv_sec)
+	{
+		tmp = data[i];
+		data[i] = data[i + 1];
+		data[i + 1] = tmp;
+		return (-1);
+	}
+	else if (s1.tv_sec == s2.tv_sec)
+		swap(data, i);
+	return (0);
+}
+
+void	sortime(t_files *data, int i)
+{
+	int y;
+	int x;
+	int z;
+//	struct timespec s1;
+//	struct timespec s2;
+
+	z = i > 1;
+	while (z)
+	{
+		x = -1;
+		z = 0;
+		while (++x < (i - 1))
+		{
+			strset(data, i);
+			y = timesort(data, i);
+			z = (y == -1) ? 1 : 0;
+			if (z == 1)
+				break;
+		}
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/06 15:03:11 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:32:42 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ typedef struct		s_files
 	struct s_files	*prev;
 	struct s_files	*sub_dir;
 	struct stat		filestat;
-	time_t			mtime;
+	//time_t			mtime;
+	time_t			ttime;
+	int				mtime;
 	time_t			atime;
 	time_t			ctime;
 	int				ntime;
@@ -56,22 +58,19 @@ typedef struct		s_files
 	ino_t			st_ino;
 	blkcnt_t		st_blocks;
 	struct dirent	*dptr;
+	char 			*dirname;
+	struct stat		stptr;
+	int				isdir;	
 }				t_files;
 
-typedef struct	files
-{
-	char	*name;
-	struct stat file;
-	int		mtime;
-
-}			ti_file;
-
-t_files *ft_swap(t_files *s1, t_files *s2);
+void sortime(t_files *data, int i);
+int timesort(t_files *data, int i);
+void swap(t_files *data, int i);
+void strset(t_files *data, int i);
 void revsort(t_files data[]);
-t_files *sorte(t_files data[]);
 void ft_time(const char *dir_name, t_files data[]);
 void printtime(t_files store[]);
-void dtime(t_files data[], int i);
+void distime(t_files data[], int i);
 int length(t_files len[]);
 void printr(const char *dir_name, t_files store[]);
 void sion(const char *dir_name);
