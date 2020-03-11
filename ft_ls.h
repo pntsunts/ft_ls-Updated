@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/09 16:32:42 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/11 16:28:42 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,40 +38,31 @@ typedef struct flags
 typedef struct		s_files
 {
 	char			*name;
-	char			*link;
-	struct s_files	*next;
-	struct s_files	*prev;
-	struct s_files	*sub_dir;
+//	char			*link;
+//	struct s_files	*next;
+//	struct s_files	*prev;
+//	struct s_files	*sub_dir;
 	struct stat		filestat;
-	//time_t			mtime;
-	time_t			ttime;
-	int				mtime;
-	time_t			atime;
-	time_t			ctime;
-	int				ntime;
-	int				cntime;
-	mode_t			st_mode;
-	nlink_t			st_nlink;
-	uid_t			st_uid;
-	gid_t			st_gid;
-	off_t			st_size;
-	ino_t			st_ino;
-	blkcnt_t		st_blocks;
-	struct dirent	*dptr;
-	char 			*dirname;
-	struct stat		stptr;
-	int				isdir;	
+	time_t			mtime;
+//	time_t			ttime;
+	//int				mtime;
+//	time_t			atime;
+//	time_t			ctime;
+//	int				ntime;
+//	int				cntime;
+//	char 			*dirname;
+//	char			*file_name;
+//	struct stat		*stptr;
+//	int				isdir;
 }				t_files;
 
-void sortime(t_files *data, int i);
-int timesort(t_files *data, int i);
-void swap(t_files *data, int i);
-void strset(t_files *data, int i);
+void see(char *dir_name, t_files tmp[]);
+int ft_structlen(t_files length[]);
+void ft_displaytime(t_files test[], int n);
+void number_sort(t_files order[], int n);
+void	printtime(const char *dir_name, t_files data[]);
 void revsort(t_files data[]);
 void ft_time(const char *dir_name, t_files data[]);
-void printtime(t_files store[]);
-void distime(t_files data[], int i);
-int length(t_files len[]);
 void printr(const char *dir_name, t_files store[]);
 void sion(const char *dir_name);
 void recur(const char *dir_name);

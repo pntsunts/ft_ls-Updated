@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:51:19 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/06 14:49:38 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/11 16:25:34 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,32 @@
 
 void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 {
-	//int i = 1;
-	//int j;
+	int i;
+	i = 1;
 
-	//while (ft_checkf(av[i]))
-	//	i++;
-	ft_confirm(ac, av, F_lags);
-	//printf("l:%i\na:%i\nr:%i\nt:%i\nR:%i\n",F_lags->l_flag,F_lags->a_flag,F_lags->r_flag,F_lags->t_flag,F_lags->Re_flag);
-	if (F_lags->l_flag == 1)
+	while (i < ac && ft_checkf(av[i]))
 	{
-		printing(av, tmp);
-	}
-   	if (F_lags->Re_flag == 1)
-	{
-		sion("/goinfre/pntsunts/Desktop");
-		recur("/");
-	}
-	if (F_lags->a_flag == 1)
-		ft_ls_a(".");
-	if (F_lags->r_flag == 1)
-	{
-		//ft_putstr("YOU IN");
-		printr(".", tmp);
-	}
-	if (F_lags->t_flag == 1)
-	{
-		printtime(tmp);
+		ft_confirm(ac, av, F_lags);
+		if (F_lags->l_flag == 1)
+		{
+//			printing(av, tmp);
+			see(".", tmp);
+		}
+   		if (F_lags->Re_flag == 1)
+		{
+			sion(".");
+			recur(".");
+		}
+		if (F_lags->a_flag == 1)
+			ft_ls_a(".");
+		if (F_lags->r_flag == 1)
+		{
+			printr(".", tmp);
+		}
+		if (F_lags->t_flag == 1)
+		{
+			printtime(".", tmp);
+		}
+		i++;
 	}
 }
