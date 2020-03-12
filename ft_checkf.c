@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:48:01 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:23 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:50:31 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 int	ft_checkf(char *av)
 {
 	if (av[0] == '-')
+	{
 		return (1);
+	}
+	else
+		ft_putstr("No such file or directory\n");
 	return (0);
 }
