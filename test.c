@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 11:51:19 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/11 16:25:34 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/12 10:40:48 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 		ft_confirm(ac, av, F_lags);
 		if (F_lags->l_flag == 1)
 		{
-//			printing(av, tmp);
-			see(".", tmp);
+			//printing(av, tmp);
+			if (ac > 2)
+			{
+				printing(av, tmp);
+			}
+			else
+				see(".", tmp);
 		}
    		if (F_lags->Re_flag == 1)
 		{
