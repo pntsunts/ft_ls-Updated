@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:11:55 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/11 16:28:39 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/12 11:24:17 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	printing(char **av, t_files tmp[])
 
 	i = 0;
 	j = 0;
+
 	while (av[i])
 	{
 		if (ft_isdir(av[i]) && !ft_checkf(av[i]))
@@ -38,9 +39,12 @@ void	printing(char **av, t_files tmp[])
 			}
 		}
 		else
+		{
 			printl(av[i]);
+		}
 		i++;	
 	}
+
 }
 
 void	see(char *dir_name, t_files tmp[])
@@ -49,7 +53,7 @@ void	see(char *dir_name, t_files tmp[])
 	char *s1;
 	char *s2;
 
-	loopdir(dir_name, tmp);
+ 	loopdir(dir_name, tmp);
 
 	while (tmp[i].name != NULL)
 	{
@@ -60,6 +64,7 @@ void	see(char *dir_name, t_files tmp[])
 		free(s2);
 		i++;
 	}
+
 }
 
 void	loopdir(char *av, t_files data[])
