@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:31:21 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/12 10:39:49 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/13 12:17:30 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,23 @@ typedef struct flags
 typedef struct		s_files
 {
 	char			*name;
-//	char			*link;
-//	struct s_files	*next;
-//	struct s_files	*prev;
-//	struct s_files	*sub_dir;
 	struct stat		filestat;
 	time_t			mtime;
-//	time_t			ttime;
-	//int				mtime;
-//	time_t			atime;
-//	time_t			ctime;
-//	int				ntime;
-//	int				cntime;
-//	char 			*dirname;
-//	char			*file_name;
-//	struct stat		*stptr;
-//	int				isdir;
 }				t_files;
 
+void ls(const char *dir_name, t_files store[]);
+void sortls(t_files *data, int n);
 void see(char *dir_name, t_files tmp[]);
 int ft_structlen(t_files length[]);
 void ft_displaytime(t_files test[], int n);
-void number_sort(t_files order[], int n);
+void sorting(t_files data[], int n);
 void	printtime(const char *dir_name, t_files data[]);
 void revsort(t_files data[]);
 void ft_time(const char *dir_name, t_files data[]);
 void printr(const char *dir_name, t_files store[]);
 void sion(const char *dir_name);
 void recur(const char *dir_name);
-void ft_ls(const char *dir_name);
+void ft_ls(const char *dir_name, t_files data[]);
 void ft_ls_a(const char *dir_name);
 void printrev(const char *dir_name, t_files data[]);
 void ft_perm(const char *dir_name);
