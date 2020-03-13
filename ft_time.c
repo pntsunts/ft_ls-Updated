@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 09:43:29 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/10 14:49:19 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/13 12:48:28 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,16 @@ void	ft_time(const char *dir_name, t_files data[])
 	struct dirent 	*folders;
 	struct stat   t_f;
 	int i = 0;
-	char path[1042];
 
-	ft_bzero(path, 1);
-	ft_strcat(path, dir_name);
 	directory = opendir(dir_name);
 	while ((folders = readdir(directory)) != NULL)
 	{
 		if (folders->d_name[i] != '.')
 		{
-			ft_strcat(path, folders->d_name);
-			//lstat(path, (data[i].stptr));
-			//lstat(path, &t_f);
 			data[i].name = ft_strdup(folders->d_name);
 			if (lstat(data[i].name, &t_f) < 0)
 			{
-				printf("This sucks");
+				printf("ERROR");
 				return ;
 			}
 			data[i].mtime = t_f.st_mtime;
@@ -62,7 +56,8 @@ int		ft_structlen(t_files length[])
 void	ft_displaytime(t_files test[], int n)
 {
 	n--;
-	number_sort(test, n);
+	sortls(test, n);
+	sorting(test, n);
 	while (n >= 0)
 	{
 		if (*test[n].name != '.')
@@ -74,28 +69,23 @@ void	ft_displaytime(t_files test[], int n)
 	}
 }
 
-void	number_sort(t_files order[], int n)
+void	sorting(t_files data[], int n)
 {
 	int		i;
 	int		j;
-	t_files	temp;
+	t_files	tmp;
 
 	i = 0;
 	while (i < n - 1)
 	{
 		j = 0;
-		//printf("Index is >> %d, %ld ", i, order[i].mtime);
-		//printf(" %s\n", order[i].name);
 		while (j < n - i - 1)
 		{
-		//	printf("Current: %ld\nNext: %ld\n", order[j].mtime, order[j + 1].mtime);
-			//if (order[j].mtime > order[j + 1].mtime)
-			if (order[j].mtime > order[j + 1].mtime)
+			if (data[j].mtime > data[j + 1].mtime)
 			{
-				ft_putstr("Swapping values");
-				temp = order[j];
-				order[j] = order[j + 1];
-				order[j + 1] = temp;
+				tmp = data[j];
+				data[j] = data[j + 1];
+				data[j + 1] = tmp;
 			}
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:24:27 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/13 12:25:08 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/13 15:09:04 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,13 @@ void	ft_ls(const char *dir_name, t_files data[])
 	closedir(directory);
 }
 
-int		countfiles(t_files store[])
-{
-	int i = 0;
-
-	while (store[i].name != 0)
-		i++;
-	return (i);
-}
 
 void	ls(const char *dir_name, t_files store[])
 {
 	int i ;
 
 	ft_ls(dir_name, store);
-	i = countfiles(store);
+	i = ft_structlen(store);
 	sortls(store, i);
 	i = 0;
 	while (store[i].name != NULL)

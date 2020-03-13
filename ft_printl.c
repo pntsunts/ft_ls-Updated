@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:11:55 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/12 11:24:17 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/13 15:05:17 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	printing(char **av, t_files tmp[])
 
 	i = 0;
 	j = 0;
-
 	while (av[i])
 	{
 		if (ft_isdir(av[i]) && !ft_checkf(av[i]))
@@ -40,21 +39,23 @@ void	printing(char **av, t_files tmp[])
 		}
 		else
 		{
-			printl(av[i]);
+				printl(av[i]);
 		}
 		i++;	
 	}
 
 }
 
+
 void	see(char *dir_name, t_files tmp[])
 {
-	int i = 0;
+	int i;
 	char *s1;
 	char *s2;
-
  	loopdir(dir_name, tmp);
-
+	i = ft_structlen(tmp);
+	sortls(tmp, i);
+	i = 0;
 	while (tmp[i].name != NULL)
 	{
 		s1 = ft_strjoin(dir_name, "/");
@@ -120,7 +121,6 @@ void 	permission(char *dir_name)
 	ft_putchar((filestat.st_mode & S_IXGRP) ? 'x' : '-');
 	ft_putchar((filestat.st_mode & S_IROTH) ? 'r' : '-');
 	ft_putchar((filestat.st_mode & S_IWOTH) ? 'w' : '-');
-	ft_putchar((filestat.st_mode & S_IROTH) ? 'x' : '-');
 }
 
 char	*username(uid_t name)
