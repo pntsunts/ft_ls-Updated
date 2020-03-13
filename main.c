@@ -6,7 +6,7 @@
 /*   By: pntsunts <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 10:26:22 by pntsunts          #+#    #+#             */
-/*   Updated: 2020/03/13 14:47:38 by pntsunts         ###   ########.fr       */
+/*   Updated: 2020/03/13 15:47:52 by pntsunts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		main(int ac, char **av)
 	{
 		if (av[i][0] != '-')
 		{
-			//ft_ls(".");
 			ls(".", tmp);
 		}
 	}
@@ -29,7 +28,6 @@ int		main(int ac, char **av)
 	{
 		test(ac, av, F_lags, tmp);
 	}
-	//sleep(10);
 	return (0);
 }
 void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
@@ -37,6 +35,11 @@ void	test(int ac, char **av, P_flags *F_lags, t_files tmp[])
 	int i;
 	i = 1;
 
+	if (!ft_checkf(av[i]))
+	{
+		ft_putstr("no such file or directory!!!!!\n");
+		return ;
+	}
 	while (i < ac && ft_checkf(av[i]))
 	{
 		ft_confirm(ac, av, F_lags);
